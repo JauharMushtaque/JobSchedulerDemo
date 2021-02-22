@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
     }
-// Called from activity_main.xml onClick()
+// Called from activity_main.xml Button onClick()
     public void scheduleJob(View view) {
         Log.d(TAG, "scheduleJob: button clicked");
         RadioGroup networkOptions = findViewById(R.id.networkOptions);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+// Called from activity_main.xml Button onClick()
     public void cancelJobs(View view) {
         if (mScheduler!=null){
             mScheduler.cancelAll();
