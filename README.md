@@ -13,3 +13,13 @@ To use JobScheduler, you need to use JobService and JobInfo:
 •	Get user input to configure constraints (such as waiting until the device is charging) on the JobService.
 
 JobScheduler is only available on devices running API 21 and higher, and is currently not available in the support library. For backward compatibility, use WorkManager.
+
+Add permissions in subclass of JobService  android:permission="android.permission.BIND_JOB_SERVICE"
+In your subclass of JobService, override two methods, onStartJob() and onStopJob().
+
+The system calls onStartJob() and automatically passes in a JobParameters object, which the system creates with information about your job.
+If your task contains long-running operations, offload the work onto a separate thread. The onStartJob() method returns a boolean: true if your task has been offloaded to a separate thread (meaning it might not be completed yet) and false if there is no more work to be done.
+
+onStopJob()
+If the system determines that your app must stop execution of the job, even before jobFinished() is called, the system calls onStopJob(). This happens if the requirements that you specified when you scheduled the job are no longer met.
+
