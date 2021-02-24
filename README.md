@@ -19,8 +19,7 @@ JobScheduler is only available on devices running API 21 and higher, and is curr
 Add permissions in subclass of JobService  android:permission="android.permission.BIND_JOB_SERVICE"
 In your subclass of JobService, override two methods, onStartJob() and onStopJob().
 
-The system calls onStartJob() when the system determines that your task should be run and automatically passes in a JobParameters object, which the system creates with information about your job.
-If your task contains long-running operations, offload the work onto a separate thread. The onStartJob() method returns a boolean: true if your task has been offloaded to a separate thread (meaning it might not be completed yet) and false if there is no more work to be done.
+The system calls onStartJob() when the system determines that your task should be run and automatically passes in a JobParameters object, which the system creates with information about your job.If your task contains long-running operations, offload the work onto a separate thread. The onStartJob() method returns a boolean: true if your task has been offloaded to a separate thread (meaning it might not be completed yet) and false if there is no more work to be done. Your app must call jobFinished() explicitly in that thread to indicate that the job is complete.
 
 onStopJob()
 If the system determines that your app must stop execution of the job, even before jobFinished() is called, the system calls onStopJob(). This happens if the requirements that you specified when you scheduled the job are no longer met.
