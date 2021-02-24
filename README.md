@@ -1,7 +1,7 @@
 # JobSchedulerDemo
 Job Scheduler Demo App
 
-use the JobScheduler class to schedule the job. To obtain an instance of this class, call getSystemService(JOB_SCHEDULER_SERVICE). Then schedule a job using the schedule() method, passing in the JobInfo object you created with the JobInfo.Builder.
+use the JobScheduler class to schedule the job. To obtain an instance of this class, call getSystemService(JOB_SCHEDULER_SERVICE). Then schedule a job using the schedule() method, passing in the JobInfo object you created with the JobInfo.Builder. schedule() method example mScheduler.schedule(myJobInfo)
 
 you can use the AlarmManager class to trigger events based on the real-time clock, or based on elapsed time since boot.
 But in Most tasks, however, do not require an exact time, but should be scheduled based on a combination of system and user requirements in this case We can use JobScheduler.
